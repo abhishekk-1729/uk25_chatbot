@@ -430,7 +430,7 @@ const Chat = () => {
             />
             <button
               type="submit"
-              className="bg-[#783ec7] bg-500 text-white px-4 py-2 rounded-lg hover:bg-[#783ec7] hover:bg-700 focus:outline-none focus:ring-2 focus:ring-[#783ec7] focus:ring-500"
+              className="bg-[#783ec7] bg-500 text-white px-4 py-2 rounded-lg "
             >
               Send
             </button>
