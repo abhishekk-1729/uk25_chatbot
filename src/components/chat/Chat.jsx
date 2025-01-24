@@ -36,13 +36,13 @@ const Chat = () => {
   useEffect(() => {
     scrollToBottom();
   }, [aiMessages, humanMessages]);
-  // const dummyQuestions = [
-  //   "What services do you offer?",
-  //   "How much does it cost to build a website?",
-  //   "Can I customize my website?",
-  // ];
   const dummyQuestions = [
+    "Tell us about Himalaya Vidya Daan Trust",
+    "What are your major achievements",
+    "How to get enrolled into your teaching programs?",
   ];
+  // const dummyQuestions = [
+  // ];
 
   const sendMessage = (message = null) => {
     console.log(input);
@@ -186,7 +186,7 @@ const Chat = () => {
           style={{ height: "600px" }}
         >
           <div className="flex justify-between items-center border-b border-gray-300 p-3">
-            <h2 className="text-lg font-semibold text-[#783ec7] text-500">
+            <h2 className="text-lg font-semibold text-[#2E7D32] text-500">
               Chat with us
             </h2>
             <button
@@ -217,7 +217,7 @@ const Chat = () => {
             <div
               className={`cursor-pointer px-3 py-1 ${
                 activeTab === "ai"
-                  ? "border-b-2 border-[#783ec7]  text-[#783ec7]"
+                  ? "border-b-2 border-[#2E7D32]  text-[#2E7D32]"
                   : ""
               }`}
               onClick={() => setActiveTab("ai")}
@@ -227,7 +227,7 @@ const Chat = () => {
             <div
               className={`cursor-pointer px-3 py-1 ${
                 activeTab === "human"
-                  ? "border-b-2 border-[#783ec7]  text-[#783ec7]"
+                  ? "border-b-2 border-[#2E7D32]  text-[#2E7D32]"
                   : ""
               }`}
               onClick={() => {
@@ -248,7 +248,7 @@ const Chat = () => {
                 {dummyQuestions.map((question, index) => (
                   <button
                     key={index}
-                    className="bg-gray-100 text-[#783ec7] text-500 px-2 py-1 rounded-lg text-sm hover:bg-[#783ec7] hover:bg-500 hover:text-white"
+                    className="bg-gray-100 text-[#2E7D32] text-500 px-2 py-1 rounded-lg text-sm hover:bg-[#2E7D32] hover:bg-500 hover:text-white"
                     onClick={(e) => handleSendMessage(e, question)}
                   >
                     {question}
@@ -267,7 +267,7 @@ const Chat = () => {
                 {dummyQuestions.map((question, index) => (
                   <button
                     key={index}
-                    className="bg-gray-100 text-[#783ec7] text-500 px-2 py-1 rounded-lg text-sm hover:bg-[#783ec7] hover:bg-500 hover:text-white"
+                    className="bg-gray-100 text-[#2E7D32] text-500 px-2 py-1 rounded-lg text-sm hover:bg-[#2E7D32] hover:bg-500 hover:text-white"
                     onClick={(e) => handleSendMessage(e, question)}
                   >
                     {question}
@@ -430,7 +430,7 @@ const Chat = () => {
             />
             <button
               type="submit"
-              className="bg-[#783ec7] bg-500 text-white px-4 py-2 rounded-lg "
+              className="bg-[#2E7D32] bg-500 text-white px-4 py-2 rounded-lg "
             >
               Send
             </button>

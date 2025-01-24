@@ -51,12 +51,23 @@ function App() {
 
   return (
     <>
-      <div className="flex justify-center items-center h-screen flex-col">
-        <h1 className="text-[60px] mb-6">
-          Welcome to Uttarakhand Teaching Project 2025{" "}
-        </h1>
-        <Chat />
-        <div className="mt-6 bg-gray-100 p-6 rounded-lg shadow-lg w-96 text-center">
+<div className="flex justify-center items-center h-screen flex-col text-center px-4">
+  <img src="logo.jpeg" alt="" className="w-[250px] md:w-[500px] h-auto" />
+  <h1 className="text-[30px] md:text-[60px] mb-6 text-[#2E7D32] font-bold">
+    Welcome to Uttarakhand Teaching Project 2025
+  </h1>
+  <Chat />
+</div>
+
+    </>
+  );
+}
+
+export default App;
+
+
+
+        {/* <div className="mt-6 bg-gray-100 p-6 rounded-lg shadow-lg w-96 text-center">
   <h2 className="text-2xl font-semibold text-gray-800 mb-4">
     Upload Your PDF File
   </h2>
@@ -87,12 +98,4 @@ function App() {
           )}
           {uploadStatus === "failed" && (
             <p className="text-red-600 text-sm mt-2">Upload failed. Try again.</p>
-          )}</div>
-      </div>
-    </>
-  );
-}
-
-export default App;
-
-
+          )}</div> */}
