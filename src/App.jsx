@@ -5,18 +5,27 @@ import Chat from "../src/components/chat/Chat";
 function App() {
   const [count, setCount] = useState(0);
   const [file, setFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadStatus, setUploadStatus] = useState(""); // "uploading", "done", "failed"
+
 
   // Handle file selection
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
+    setUploadStatus(""); // Reset status when a new file is selected
   };
 
+  
   // Handle file upload to API
   const handleFileUpload = async () => {
     if (!file) {
       alert("Please select a file first!");
       return;
     }
+
+    setUploading(true);
+    setUploadStatus("uploading");
+
 
     const formData = new FormData();
     formData.append("file", file);
@@ -28,12 +37,15 @@ function App() {
       });
 
       if (response.ok) {
-        alert("File uploaded successfully!");
+        setUploadStatus("done");
       } else {
-        alert("File upload failed!");
-      }
+        setUploadStatus("failed");      }
     } catch (error) {
+      setUploadStatus("failed");
       alert("Error uploading file: " + error.message);
+    }
+    finally {
+      setUploading(false);
     }
   };
 
@@ -44,23 +56,43 @@ function App() {
           Welcome to Uttarakhand Teaching Project 2025{" "}
         </h1>
         <Chat />
-        <div className="mt-6">
-          <input
-            type="file"
-            onChange={handleFileChange}
-            accept=".pdf"
-            className="mb-4"
-          />
-          <button
+        <div className="mt-6 bg-gray-100 p-6 rounded-lg shadow-lg w-96 text-center">
+  <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+    Upload Your PDF File
+  </h2>
+  <label className="cursor-pointer bg-white border border-gray-300 rounded-lg py-3 px-6 text-gray-700 shadow-sm hover:shadow-md transition-all duration-200">
+    <input
+      type="file"
+      onChange={handleFileChange}
+      accept=".pdf"
+      className="hidden"
+    />
+    {file ? file.name : "Choose a file"}
+  </label>
+  <button
             onClick={handleFileUpload}
-            className="bg-blue-500 text-white px-4 py-2 rounded"
+            disabled={uploading}
+            className={`mt-4 px-6 py-2 rounded-lg text-white font-medium shadow-md transition-all duration-200 ${
+              uploading ? "bg-gray-500 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+            }`}
           >
-            Upload PDF
+            {uploading ? "Uploading..." : "Upload PDF"}
           </button>
-        </div>
+          
+          {uploadStatus === "uploading" && (
+            <p className="text-yellow-500 text-sm mt-2">Uploading...</p>
+          )}
+          {uploadStatus === "done" && (
+            <p className="text-green-600 text-sm mt-2">Upload successful!</p>
+          )}
+          {uploadStatus === "failed" && (
+            <p className="text-red-600 text-sm mt-2">Upload failed. Try again.</p>
+          )}</div>
       </div>
     </>
   );
 }
 
 export default App;
+
+
