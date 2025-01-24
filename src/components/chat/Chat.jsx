@@ -241,7 +241,7 @@ const Chat = () => {
 
           {activeTab === "ai" && showQuickQuestionsAi && (
             <div className="p-3 border-b border-gray-300">
-              <h3 className="text-sm font-semibold text-gray-600 mb-2">
+              <h3 className="text-sm font-semibold text-gray-600 mb-2 text-left">
                 Quick Questions:
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -260,7 +260,7 @@ const Chat = () => {
 
           {activeTab === "human" && showQuickQuestionsHuman && (
             <div className="p-3 border-b border-gray-300">
-              <h3 className="text-sm font-semibold text-gray-600 mb-2">
+              <h3 className="text-sm font-semibold text-gray-600 mb-2 text-left">
                 Quick Questions:
               </h3>
               <div className="flex flex-wrap gap-2">
